@@ -1,0 +1,50 @@
+{#
+Created by Emmanuel Delépine
+* Date: 14/09/2016
+app/Resources/views/user/user.html.twig
+#}
+{% extends 'template.html.twig' %}
+
+{% block body %}
+    {% block container %}
+        {% block main %}
+            {% block section %}
+    <h1>Serie</h1>
+
+    <table>
+        <tbody>
+            {#<tr>
+                <th>Id</th>
+                <td>{{ serie.id }}</td>
+            </tr>#}
+            <tr>
+                <th>Titre</th>
+                <td>{{ serie.name }}</td>
+            </tr>
+            <tr>
+                <th>Poster</th>
+                <td><a href="{{ asset('uploads/poster/' ~ serie.poster) }}"><img src="{{ asset('uploads/poster/' ~ serie.poster) }}"/></a></td>
+            </tr>
+            <tr>
+                <th>Resumé</th>
+                <td>{{ serie.resume }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+                {#{% render "AppBundle:StarRateController:show" %}#}
+                {#{% render "AppBundle:CommentController:show" %}#}
+                {#{% render "FanDeSerie:src:AppBundle:Controller:CommentController:comment_edit" %}#}
+
+<div class="btn-group">
+    {{ form_start(delete_form) }}
+    <a class="btn btn-default" href="{{ path('season_show', { 'id': serie.id }) }}">Saisons</a>
+    <a class="btn btn-default" href="{{ path('serie_index') }}">Retour à la liste</a>
+    <a class="btn btn-default" href="{{ path('serie_edit', { 'id': serie.id }) }}">Edition</a>
+    <input class="btn btn-default" type="submit" value="Delete">
+    {{ form_end(delete_form) }}
+</div>
+            {% endblock %}
+        {% endblock %}
+    {% endblock %}
+{% endblock %}

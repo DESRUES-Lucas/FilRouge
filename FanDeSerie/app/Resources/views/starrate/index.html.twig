@@ -1,0 +1,37 @@
+
+    <h2>StarRate list</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Value</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for starRate in starRates %}
+            <tr>
+                <td><a href="{{ path('starrate_show', { 'id': starRate.id }) }}">{{ starRate.id }}</a></td>
+                <td>{{ starRate.value }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('starrate_show', { 'id': starRate.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('starrate_edit', { 'id': starRate.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('starrate_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+

@@ -1,0 +1,29 @@
+<h2>Toutes les séries</h2>
+<table>
+    <thead>
+    <tr>
+        {#<th>Id</th>#}
+        <th>Nom</th>
+        {#<th>Poster</th>#}
+        {#<th>Resumé</th>#}
+        {#<th>Starrate</th>#}
+        {#<th> &nbsp;Actions</th>#}
+    </tr>
+    </thead>
+    <tbody>
+
+        {% for serie in series %}
+            <tr>
+                {#<td>{{ serie.id }}</td>#}
+                <td class="nomserie"><a href="{{ path('serie_show', { 'id': serie.id }) }}">{{ serie.name }}</a> &nbsp;</td>
+                <td> &nbsp;<img class="icone" src="{{ asset('uploads/poster/' ~ serie.poster) }}"/> &nbsp;</td>
+                <td> &nbsp;{{ serie.resume }} &nbsp;</td>
+                {#<td>{{ serie.starRate }}</td>#}
+                <td class="btn-group">
+                    <a class="btn btn-default" href="{{ path('serie_show', { 'id': serie.id }) }}">Voir</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+</table>

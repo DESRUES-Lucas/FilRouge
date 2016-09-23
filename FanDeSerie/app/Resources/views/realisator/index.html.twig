@@ -1,0 +1,50 @@
+{% extends 'template.html.twig' %}
+
+{% block body %}
+    {% block header %}
+
+
+
+    {% endblock %}
+    {% block container %}
+        {% block main %}
+            {% block section %}
+    <h1>Liste des Realisateurs</h1>
+
+    <table>
+        <thead>
+            <tr>
+                {#<th>Id</th>#}
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for realisator in realisators %}
+            <tr>
+                {#<td><a href="{{ path('realisator_show', { 'id': realisator.id }) }}">{{ realisator.id }}</a></td>#}
+                <td>{{ realisator.firstName }}</td>
+                <td>{{ realisator.lastName }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('realisator_show', { 'id': realisator.id }) }}">Voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('realisator_edit', { 'id': realisator.id }) }}">Editer</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="btn-group">
+        <a class="btn btn-default"  href="{{ path('realisator_new') }}">Ajouter un réalisateur</a>
+    </div>
+                {% endblock %}
+            {% endblock %}
+    {% endblock %}
+{% endblock %}

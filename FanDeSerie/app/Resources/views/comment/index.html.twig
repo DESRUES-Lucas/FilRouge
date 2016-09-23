@@ -1,0 +1,39 @@
+
+    <h2>Comment list</h2>
+
+    <table>
+        <thead>
+            <tr>
+                {#<th>Id</th>#}
+                <th>Prate</th>
+                <th>Nrate</th>
+                <th>Content</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comment in comments %}
+            <tr>
+                {#<td><a href="{{ path('comment_show', { 'id': comment.id }) }}">{{ comment.id }}</a></td>#}
+                <td>{% if comment.pRate %}Yes{% else %}No{% endif %}</td>
+                <td>{% if comment.nRate %}Yes{% else %}No{% endif %}</td>
+                <td>{{ comment.content }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('comment_show', { 'id': comment.id }) }}">Voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('comment_edit', { 'id': comment.id }) }}">éditer</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="btn-group">
+            <a class="btn btn-default" href="{{ path('comment_new') }}">Ajouter un commentaire</a>
+        </div>
+

@@ -1,0 +1,56 @@
+{% extends 'template.html.twig' %}
+
+{% block body %}
+    {% block header %}
+
+
+
+    {% endblock %}
+    {% block container %}
+        {% block main %}
+            {% block section %}
+    <h1>Liste des Utilisateurs</h1>
+
+    <table>
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>Pseudo &nbsp;</th>
+                <th>Firstname &nbsp;</th>
+                <th>Lastname &nbsp;</th>
+                <th>Picture &nbsp;</th>
+                {#<th>Password</th>#}
+                <th>Dateregistration &nbsp;</th>
+                <th>Birthdate &nbsp;</th>
+                <th>Actions &nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for individual in individuals %}
+            <tr>
+                {# <td>{{ individual.id }}</td> #}
+                <td><a href="{{ path('individual_show', { 'id': individual.id }) }}">{{ individual.username }}</a> &nbsp;</td>
+                <td>{{ individual.firstName }} &nbsp;</td>
+                <td>{{ individual.lastName }} &nbsp;</td>
+                <td><img class="icone" src="{{ asset('uploads/picture/' ~ individual.picture) }}"/> &nbsp;</td>
+                {#<td>{{ individual.password }}</td>#}
+                <td>{% if individual.dateRegistration %}{{ individual.dateRegistration|date('Y-m-d') }}{% endif %} &nbsp;</td>
+                <td>{% if individual.birthDate %}{{ individual.birthDate|date('Y-m-d') }}{% endif %} &nbsp;</td>
+                <td>
+                    <div class="btn-group">
+                            <a class="btn btn-default" href="{{ path('individual_show', { 'id': individual.id }) }}">Voir</a>
+                            <a class="btn btn-default" href="{{ path('individual_edit', { 'id': individual.id }) }}">Editer</a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<div class="btn-group">
+    <a class="btn btn-default" href="{{ path('individual_new') }}">Ajouter un utilisateur</a>
+</div>
+                    {% endblock %}
+                {% endblock %}
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,51 @@
+{#
+Created by Emmanuel Delépine
+* Date: 14/09/2016
+app/Resources/views/user/user.html.twig
+#}
+{% extends 'template.html.twig' %}
+
+{% block body %}
+    {% block header %}
+
+
+
+    {% endblock %}
+  {% block container %}
+    {% block main %}
+        {% block section %}
+    <h1 class="h1">Acteurs</h1>
+
+    <table>
+        <thead>
+            <tr>
+                {#<th>Id</th>#}
+                <th>Prénom &nbsp;</th>
+                <th>Nom &nbsp;</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for actor in actors %}
+            <tr>
+                {#<td><a href="{{ path('actor_show', { 'id': actor.id }) }}">{{ actor.id }}</a></td>#}
+                <td>{{ actor.firstName }} &nbsp;</td>
+                <td>{{ actor.lastName }} &nbsp;</td>
+                <td><a href="{{ path('actor_show', { 'id': actor.id }) }}">&nbsp;Ouvrir</a> | <a href="{{ path('actor_edit', { 'id': actor.id }) }}">Editer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul class="btn-block">
+        <li class="btn">
+            <a class="btn btn-default" role="button" href="{{ path('actor_new') }}">Ajouter un acteur</a>
+        </li>
+    </ul>
+            {% endblock %}
+        {% endblock %}
+    {% endblock %}
+    {% block javascripts %}
+    {% endblock %}
+{% endblock %}

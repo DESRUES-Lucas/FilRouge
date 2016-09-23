@@ -1,0 +1,58 @@
+{#
+Created by Emmanuel Delépine
+* Date: 14/09/2016
+app/Resources/views/user/user.html.twig
+#}
+{% extends 'template.html.twig' %}
+
+{% block body %}
+    {% block container %}
+        {% block main %}
+            {% block section %}
+    <h2 class="titre">{{ serie.name }}</h2>
+    <div class="show-one">
+        <table class="table table-inverse">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ serie.id }}</td>
+                </tr>
+                <tr>
+                    <th>Nom Original</th>
+                    <td>{{ serie.name }}</td>
+                </tr>
+                <tr>
+                    <th>Poster</th>
+                    <td><a href="{{ asset('uploads/poster/' ~ serie.poster) }}"><img src="{{ asset('uploads/poster/' ~ serie.poster) }}"/></a></td>
+                </tr>
+                <tr>
+                    <th>Resumé</th>
+                    <td>{{ serie.resume }}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+            <div class="bottom-btn">
+                <a href="{{ path('serie_index') }}">
+                    <button type="button" class="btn btn-primary">Retour</button>
+                </a>
+                <a href="{{ path('serie_edit', { 'id': serie.id }) }}">
+                    <button type="button" class="btn btn-primary">Modifier</button>
+                </a>
+                {{ form_start(delete_form) }}
+                <input  class="btn btn-danger" type="submit" value="Supprimer">
+                {{ form_end(delete_form) }}
+            </div>
+
+
+
+
+
+{% endblock %}
+        {% endblock %}
+    {% endblock %}
+{% endblock %}

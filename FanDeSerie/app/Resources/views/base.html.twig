@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Fan de séries{% endblock %}</title>
+        <meta name="description" content="Fan de séries"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Emmanuel Delépine">
+        <link rel="canonical" href="localhost/NewFilRouge/FanDeSerie<?php echo $_SERVER['PHP_SELF']; ?>"/>
+        {% block stylesheets %}
+            <META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+            {% stylesheets '@OCPlatformBundle/Resources/public/css/main.css' %}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+            {% endstylesheets %}
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+
+    <body>
+    <h1>Fenneck</h1>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

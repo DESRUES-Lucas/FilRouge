@@ -1,0 +1,10 @@
+<nav class="navbar nav-tabs navbar-inverse" style="border-top-right-radius:0px; border-top-left-radius:0px;" role="navigation">
+    <div class="btn-group btn-group-justified" role="group">
+        <a href="{{ path('homepage') }}" class="btn btn-default {% if app.request.attributes.get('_route') == 'homepage' %}active{% endif %}" type="button" id = "home">Home</a><a href="{{ path('serie_index') }}" id = "series" class="btn btn-default {% if app.request.attributes.get('_route') == 'serie_index' %}active{% endif %}" type="button">Liste des Séries</a><a href="{{ path('individual_index') }}" id = "next" class="btn btn-default  {% if app.request.attributes.get('_route') == 'individual_index' %}active{% endif %}"  type="button">Liste users</a>
+    </div>
+    <div class="date">&nbsp;{{ "now"|date("d . m . Y") }}</div>
+
+
+
+
+</nav>

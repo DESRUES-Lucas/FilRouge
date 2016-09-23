@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Fan de séries{% endblock %}</title>
+    <meta name="description" content="Fan de séries"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Emmanuel Delépine">
+    <link rel="canonical" href="localhost/NewFilRouge/FanDeSerie<?=.$_SERVER['PHP_SELF']; ?>"/>
+    {% block stylesheets  %}
+        <META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+
+    {% endblock %}
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body class="body">
+
+    <header>
+
+
+        <img src="{{ asset('img/series-tv.jpg') }}" />
+
+        {{ include('includes/nav.html.twig') }}
+    </header>
+<div  class="container-fluid" >
+    {% block container %}
+    <main class="row">
+        {% block main %}
+        <section  class="col-ml-4 col-p-l-4">
+
+            {% block section %}
+
+            {% endblock %}
+
+        </section>
+            <div>
+                {% block fos_user_content %}
+
+                {% endblock fos_user_content %}
+            </div>
+
+        <aside>
+            {% block aside %}
+            {% endblock %}
+        </aside>
+        {% endblock %}
+
+    </main>
+    {% endblock %}
+</div>
+
+    <footer>
+        {% block footer %}
+        {% endblock %}
+    </footer>
+
+{% block javascripts %}
+    {#<script src="{{ asset('js/jquery.min.js') }}"></script>#}
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+{% endblock %}
+</body>
+</html>

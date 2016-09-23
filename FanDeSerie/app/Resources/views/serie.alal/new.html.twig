@@ -1,0 +1,49 @@
+{#
+Created by Emmanuel Delépine
+* Date: 14/09/2016
+app/Resources/views/user/user.html.twig
+#}
+{% extends 'template.html.twig' %}
+
+{% block body %}
+    {% block container %}
+        {% block main %}
+            {% block section %}
+                <h2 class="titre">Ajouter une série</h2>
+                <div class="serie-form">
+
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+                    <div>
+                        <div class= "form-text">
+                            {{ form_label(form.name) }}
+                        </div>
+                        {{ form_errors(form.name) }}
+                        {{ form_widget(form.name) }}
+                    </div>
+                    <div>
+                        <div class= "form-text">
+                            {{ form_label(form.resume) }}
+                        </div>
+                        {{ form_errors(form.resume) }}
+                        {{ form_widget(form.resume) }}
+                    </div>
+                    <div>
+                        <div class= "form-text">
+                            {{ form_label(form.poster) }}
+                        </div>
+                        {{ form_errors(form.poster) }}
+                        {{ form_widget(form.poster) }}
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Créer" />
+                    {{ form_end(form) }}
+                </div>
+                    <div class ="bottom-btn">
+                        <a class="btn btn-primary" role="button" href="{{ path('serie_index') }}">Retour</a>
+                    </div>
+
+
+            {% endblock %}
+        {% endblock %}
+    {% endblock %}
+{% endblock %}

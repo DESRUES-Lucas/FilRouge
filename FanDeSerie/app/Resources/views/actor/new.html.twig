@@ -1,0 +1,33 @@
+{#
+Created by Emmanuel Delépine
+* Date: 14/09/2016
+app/Resources/views/user/user.html.twig
+#}
+{% extends 'template.html.twig' %}
+
+{% block body %}
+     {% block header %}
+
+
+
+     {% endblock %}
+    {% block container %}
+        {% block main %}
+            {% block section %}
+    <h1 class="h1">Ajout d'un acteur</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <div class="btn-block">
+        <a class="btn btn-default" href="{{ path('actor_index') }}">Retour à la liste</a>
+    </div>
+            {% endblock %}
+        {% endblock %}
+    {% endblock %}
+    {% block javascripts %}
+    {% endblock %}
+{% endblock %}
+

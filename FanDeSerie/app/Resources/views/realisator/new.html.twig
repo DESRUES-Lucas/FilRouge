@@ -1,0 +1,25 @@
+{% extends 'template.html.twig' %}
+
+{% block body %}
+    {% block header %}
+
+
+
+    {% endblock %}
+    {% block container %}
+        {% block main %}
+            {% block section %}
+    <h1>Nouveau Realisateur</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <div class="btn-group">
+        <a class="btn btn-default" href="{{ path('realisator_index') }}">Back to the list</a>
+    </div>
+                {% endblock %}
+            {% endblock %}
+    {% endblock %}
+{% endblock %}

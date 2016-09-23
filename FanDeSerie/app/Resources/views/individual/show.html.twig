@@ -1,0 +1,65 @@
+{% extends 'template.html.twig' %}
+
+{% block body %}
+    {% block header %}
+
+
+
+    {% endblock %}
+    {% block container %}
+        {% block main %}
+            {% block section %}
+    <h1>Utilisateur</h1>
+
+    <table>
+        <tbody>
+            {#
+            <tr>
+                <th>Id</th>
+                <td>{{ individual.id }}</td>
+            </tr>
+            #}
+            <tr>
+                <th>Pseudo: &nbsp;</th>
+                <td>{{ individual.username }}</td>
+            </tr>
+            <tr>
+                <th>Prénom: &nbsp;</th>
+                <td>{{ individual.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Nom: &nbsp;</th>
+                <td>{{ individual.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Photo: &nbsp;</th>
+                <td><img src="{{ asset('uploads/picture/' ~ individual.picture) }}"/></td>
+            </tr>
+            <tr>
+                <th>Password: &nbsp;</th>
+                <td>Vous seul le connaissez.{#{{ individual.password }}#}</td>
+            </tr>
+            <tr>
+                <th>Date d'inscription: &nbsp;</th>
+                <td>{% if individual.dateRegistration %}{{ individual.dateRegistration|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Date de naissance</th>
+                <td>{% if individual.birthDate %}{{ individual.birthDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="btn-group">
+
+            <a class="btn btn-default" href="{{ path('individual_index') }}">Liste des utilisateurs</a>
+            <a class="btn btn-default" href="{{ path('individual_edit', { 'id': individual.id }) }}">Editer le profil</a>
+            {{ form_start(delete_form) }}
+                <input class="btn btn-default" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+
+    </div>
+                {% endblock %}
+            {% endblock %}
+    {% endblock %}
+{% endblock %}

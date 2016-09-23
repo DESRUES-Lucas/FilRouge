@@ -1,0 +1,34 @@
+{#
+Created by Emmanuel Delépine
+* Date: 14/09/2016
+app/Resources/views/user/user.html.twig
+#}
+{% extends 'template.html.twig' %}
+
+{% block body %}
+    {% block header %}
+
+
+
+    {% endblock %}
+    {% block container %}
+        {% block main %}
+            {% block section %}
+    <h1>Individual edit</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="Edit" />
+    {{ form_end(edit_form) }}
+
+<div class="btn-group">
+    <a class="btn btn-default" href="{{ path('individual_index') }}">Retour à la liste</a>
+
+            {{ form_start(delete_form) }}
+                <input class="btn btn-default" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+</div>
+                    {% endblock %}
+                {% endblock %}
+            {% endblock %}
+{% endblock %}

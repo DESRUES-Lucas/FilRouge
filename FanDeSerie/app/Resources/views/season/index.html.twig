@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% block header %}
+
+
+
+    {% endblock %}
+    {% block container %}
+        {% block main %}
+            {% block section %}
+    <h1>Liste des Saisons</h1>
+
+    <table>
+        <thead>
+            <tr>
+                {#<th>Id</th>#}
+                <th>Numéro</th>
+                <th>Poster</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for season in seasons %}
+            <tr>
+                {#<td><a href="{{ path('season_show', { 'id': season.id }) }}">{{ season.id }}</a></td>#}
+                <td>{{ season.number }}</td>
+                <td>{{ season.poster }}</td>
+                <td>
+                    <div class="btn-group">
+                            <a class="btn btn-default" href="{{ path('season_show', { 'id': season.id }) }}">Voir</a>
+                            <a class="btn btn-default" href="{{ path('season_edit', { 'id': season.id }) }}">Editer</a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="btn-group">
+        <a class="btn btn-default"  href="{{ path('season_new') }}">Ajouter une saison</a>
+    </div>
+                {% endblock %}
+            {% endblock %}
+    {% endblock %}
+{% endblock %}

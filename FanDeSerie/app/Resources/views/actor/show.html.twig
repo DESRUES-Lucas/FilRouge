@@ -1,0 +1,53 @@
+{#
+Created by Emmanuel Delépine
+* Date: 14/09/2016
+app/Resources/views/user/user.html.twig
+#}
+{% extends 'template.html.twig' %}
+
+{% block body %}
+    {% block header %}
+
+
+
+    {% endblock %}
+    {% block container %}
+        {% block main %}
+            {% block section %}
+    <h1 class="h1">Acteur</h1>
+
+    <table>
+        <tbody>
+            {#
+            <tr>
+                <th>Id</th>
+                <td>{{ actor.id }}</td>
+            </tr>
+            #}
+            <tr>
+                <th>Prénom</th>
+                <td>{{ actor.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ actor.lastName }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="btn-group">
+            <a class="btn btn-default" href="{{ path('actor_index') }}">Retour à la liste</a>
+
+            <a class="btn btn-default" href="{{ path('actor_edit', { 'id': actor.id }) }}">Editer</a>
+
+            {{ form_start(delete_form) }}
+                <input class="btn btn-default" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </div>
+                {% endblock %}
+        {% endblock %}
+    {% endblock %}
+    {% block javascripts %}
+    {% endblock %}
+{% endblock %}
+

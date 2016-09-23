@@ -1,0 +1,43 @@
+{% extends 'template.html.twig' %}
+
+{% block body %}
+    {% block header %}
+
+
+
+    {% endblock %}
+    {% block container %}
+        {% block main %}
+            {% block section %}
+    <h1>Season</h1>
+
+    <table>
+        <tbody>
+            {#
+            <tr>
+                <th>Id</th>
+                <td>{{ season.id }}</td>
+            </tr>
+            #}
+            <tr>
+                <th>Numéro</th>
+                <td>{{ season.number }}</td>
+            </tr>
+            <tr>
+                <th>Poster</th>
+                <td>{{ season.poster }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="btn-group">
+        <a class="btn btn-default" href="{{ path('season_index') }}">Liste</a>
+        <a class="btn btn-default" href="{{ path('season_edit', { 'id': season.id }) }}">Editer</a>
+
+        {{ form_start(delete_form) }}
+            <input class="btn btn-default" type="submit" value="Delete">
+        {{ form_end(delete_form) }}
+    </div>
+                {% endblock %}
+            {% endblock %}
+{% endblock %}

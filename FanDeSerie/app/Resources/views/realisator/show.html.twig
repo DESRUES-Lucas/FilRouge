@@ -1,0 +1,43 @@
+{% extends 'template.html.twig' %}
+
+{% block body %}
+    {% block header %}
+
+
+
+    {% endblock %}
+    {% block container %}
+        {% block main %}
+            {% block section %}
+    <h1>Realisator</h1>
+
+    <table>
+        <tbody>
+            {#
+            <tr>
+                <th>Id</th>
+                <td>{{ realisator.id }}</td>
+            </tr>
+            #}
+            <tr>
+                <th>Prénom</th>
+                <td>{{ realisator.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ realisator.lastName }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="btn-group">
+        <a class="btn btn-default" href="{{ path('realisator_index') }}">Retour à la liste</a>
+        <a  class="btn btn-default" href="{{ path('realisator_edit', { 'id': realisator.id }) }}">Edit</a>
+        {{ form_start(delete_form) }}
+            <input class="btn btn-default" type="submit" value="Delete">
+        {{ form_end(delete_form) }}
+    </div>
+                {% endblock %}
+            {% endblock %}
+    {% endblock %}
+{% endblock %}

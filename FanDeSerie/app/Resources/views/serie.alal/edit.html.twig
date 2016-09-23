@@ -1,0 +1,37 @@
+{#
+Created by Emmanuel Delépine
+* Date: 14/09/2016
+app/Resources/views/user/user.html.twig
+#}
+{% extends 'template.html.twig' %}
+
+{% block body %}
+    {% block container %}
+        {% block main %}
+            {% block section %}
+    <h2 class="titre">Edition Série</h2>
+    <div class="serie-form">
+        {{ form_start(edit_form) }}
+            {{ form_errors(edit_form) }}
+
+            {{ form_widget(edit_form) }}
+            <input class="btn btn-primary" type="submit" value="Modifier" />
+        {{ form_end(edit_form) }}
+        {#
+            {% include './season/newInclude.html.twig' %}
+         #}
+
+    </div>
+
+    <div class="bottom-btn">
+        <a href="{{ path('serie_index') }}">
+            <button type="button" class="btn btn-primary">Retour</button>
+        </a>
+        {{ form_start(delete_form) }}
+        <input class="btn btn-danger" type="submit" value="Supprimer">
+        {{ form_end(delete_form) }}
+    </div>
+            {% endblock %}
+        {% endblock %}
+    {% endblock %}
+{% endblock %}

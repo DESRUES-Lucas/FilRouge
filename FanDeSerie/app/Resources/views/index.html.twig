@@ -1,0 +1,30 @@
+{#
+Created by Emmanuel Delépine
+* Date: 14/09/2016
+app/Resources/views/user/user.html.twig
+#}
+{% extends 'template.html.twig' %}
+
+{% block body %}
+    {% block header %}
+
+
+
+    {% endblock %}
+    {% block container %}
+        {% block main %}
+            {% block section %}
+                <h1 class="h1">Fans de séries</h1>
+                <h2>L'édito de l'admin</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis erat ac aliquam feugiat. Quisque aliquam ornare faucibus. Cras efficitur ut nulla in scelerisque. Etiam et elit euismod, interdum neque gravida, tempus lectus. Nunc porttitor leo mauris, ac lacinia elit venenatis sit amet. Donec vitae lobortis nulla, pulvinar viverra felis. In ac purus malesuada, scelerisque nisl quis, gravida purus. Ut elementum sed sem ut congue. Vivamus tempor orci et erat interdum, in molestie magna fermentum. Nullam pharetra, est sit amet vestibulum condimentum, mauris magna lacinia urna, in interdum augue ipsum sit amet leo. Nunc dictum odio enim, nec posuere nunc venenatis a. Vestibulum hendrerit ullamcorper lacus ullamcorper viverra. Vestibulum lobortis velit eget mi congue scelerisque. Etiam eu dolor dapibus, ultricies justo a, dapibus purus. Maecenas mollis tristique pellentesque.</p>
+            {% endblock %}
+            {% block aside %}
+                {#{% import './serie/index-include.html.twig' as series %}#}
+                {% include './serie/index-include.html.twig' with {'series': '[serie.id, serie.name, serie.poster]' }  %}
+            {% endblock %}
+        {% endblock %}
+
+    {% endblock %}
+    {% block javascripts %}
+    {% endblock %}
+{% endblock %}

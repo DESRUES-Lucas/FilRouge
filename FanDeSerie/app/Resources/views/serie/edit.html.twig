@@ -1,0 +1,30 @@
+{#
+Created by Emmanuel Delépine
+* Date: 14/09/2016
+app/Resources/views/user/user.html.twig
+#}
+{% extends 'template.html.twig' %}
+
+{% block body %}
+    {% block container %}
+        {% block main %}
+            {% block section %}
+    <h1>EDITION de Serie</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input class="btn btn-default" type="submit" value="Edit" />
+    {{ form_end(edit_form) }}
+{#
+                {% include './season/newInclude.html.twig' %}
+#}
+<div class="btn-group">
+            {{ form_start(delete_form) }}
+                <input class="btn btn-default" type="submit" value="Delete">
+                <a class="btn btn-default" href="{{ path('serie_index') }}">Retour à la liste</a>
+            {{ form_end(delete_form) }}
+</div>
+            {% endblock %}
+        {% endblock %}
+    {% endblock %}
+{% endblock %}

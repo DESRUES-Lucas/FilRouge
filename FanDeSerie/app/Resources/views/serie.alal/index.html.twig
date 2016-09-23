@@ -1,0 +1,56 @@
+{#
+Created by Emmanuel Delépine
+* Date: 14/09/2016
+app/Resources/views/user/user.html.twig
+#}
+{% extends 'template.html.twig' %}
+
+{% block body %}
+    {% block container %}
+        {% block main %}
+            {% block section %}
+    <div class="table-responsive">
+        <table class="table table-inverse">
+            <thead>
+                <tr>
+                    {#<th>Id</th>#}
+                    <th>Nom</th>
+                    <th>Poster</th>
+                    <th>Resumé</th>
+                    {#<th>Starrate</th>#}
+                    <th> &nbsp;Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for serie in series %}
+                <tr>
+                    {#<td>{{ serie.id }}</td>#}
+                    <td><a href="{{ path('serie_show', { 'id': serie.id }) }}">{{ serie.name }}</a> &nbsp;</td>
+                    <td> &nbsp;<img class="icone" src="{{ asset('uploads/poster/' ~ serie.poster) }}"/> &nbsp;</td>
+                    <td> &nbsp;{{ serie.resume }} &nbsp;</td>
+                    {#<td>{{ serie.starRate }}</td>#}
+                    <td>
+                        <div class="btn-group btn-group-sm" role="group">
+                                <a href="{{ path('serie_show', { 'id': serie.id }) }}">
+                                    <button type="button" class="btn btn-default">Regarder</button>
+                                </a>
+                                <a href="{{ path('serie_edit', { 'id': serie.id }) }}">
+                                    <button type="button" class="btn btn-default">Modifier</button>
+                                </a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+            <a href="{{ path('serie_new') }}">
+                <button type="button" class="btn btn-primary">Ajouter une série</button>
+            </a>
+
+            {% endblock %}
+        {% endblock %}
+    {% endblock %}
+{% endblock %}
